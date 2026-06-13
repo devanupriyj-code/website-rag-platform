@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+<h1>Search Engine Dashboard</h1>
+<h2>Top Searches</h2>
+
+<ul>
+
+{% for query, count in popular %}
+
+<li>
+{{ query }} ({{ count }})
+</li>
+
+{% endfor %}
+
+</ul>
+
+
+<h3>
+Indexed Pages:
+{{ pages }}
+</h3>
+
+<h3>
+Unique Words:
+{{ unique_words }}
+</h3>
+
+<h3>
+Database Size:
+{{ db_size }} KB
+</h3>
+
+<a href="/">
+Back To Search
+</a>
+
+</body>
+
+</html> 

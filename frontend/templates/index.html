@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Mini Search Engine</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🔍 Mini Search Engine</h1>
+    <form action="/build" method="POST">
+
+<input
+    type="text"
+    name="url"
+    placeholder="https://example.com"
+>
+
+<button>
+Build Knowledge Base
+</button>
+
+</form>
+    <form method="GET">
+
+        <input
+            type="text"
+            name="q"
+            id="searchBox"
+            value="{{ query }}"
+            placeholder="Search..."
+            autocomplete="off"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+    <p>
+Tip:
+Use quotes for exact matches.
+
+Example:
+"python package index"
+</p>
+
+    <div id="suggestions"></div>
+    {% if ai_answer %}
+
+<div class="ai-card">
+
+<h2>
+🤖 AI Answer
+</h2>
+
+<p>
+
+{{ ai_answer.answer }}
+
+</p>
+
+<details>
+
+<summary>
+
+Sources Used
+
+</summary>
+
+{% for score, chunk in ai_answer.chunks %}
+
+<div style="margin-top:10px;">
+
+<strong>
+Similarity:
+{{ "%.3f"|format(score) }}
+</strong>
+
+<br><br>
+
+{{ chunk[:400] }}
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+</details>
+
+</div>
+
+{% endif %}
+
+    <p class="count">
+        Found {{ results|length }} result(s)
+    </p>
+
+    {% for result in results %}
+
+    <div class="result">
+
+        <h3>
+
+            <a
+                href="{{ result.url }}"
+                target="_blank"
+            >
+                {{ result.title }}
+            </a>
+
+        </h3>
+
+        <div class="url">
+            {{ result.url }}
+        </div>
+
+        <div class="score">
+            Score: {{ result.score }}
+        </div>
+
+        <div class="snippet">
+            {{ result.snippet|safe }}
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+<div class="pagination">
+
+{% if page > 1 %}
+
+<a href="/?q={{query}}&page={{page-1}}">
+Previous
+</a>
+
+{% endif %}
+
+Page {{page}} of {{total_pages}}
+
+{% if page < total_pages %}
+
+<a href="/?q={{query}}&page={{page+1}}">
+Next
+</a>
+
+{% endif %}
+
+</div>
+<script>
+
+const searchBox =
+document.getElementById(
+    "searchBox"
+);
+
+const suggestions =
+document.getElementById(
+    "suggestions"
+);
+
+searchBox.addEventListener(
+    "input",
+    async function(){
+
+        const query =
+        searchBox.value;
+
+        if(query.length < 2){
+
+            suggestions.innerHTML = "";
+            return;
+        }
+
+        const response =
+        await fetch(
+            "/autocomplete?q=" +
+            encodeURIComponent(query)
+        );
+
+        const data =
+        await response.json();
+
+        suggestions.innerHTML = "";
+
+        data.forEach(word => {
+
+            const div =
+            document.createElement("div");
+
+            div.className =
+            "suggestion";
+
+            div.innerText =
+            word;
+
+            div.onclick = () => {
+
+                searchBox.value =
+                word;
+
+                suggestions.innerHTML =
+                "";
+            };
+
+            suggestions.appendChild(div);
+        });
+    }
+);
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f7fa;
+    margin:0;
+}
+
+.container{
+    width:900px;
+    margin:auto;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+}
+
+input[type=text]{
+
+    width:80%;
+    padding:14px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    font-size:16px;
+}
+
+button{
+
+    padding:14px 20px;
+
+    border:none;
+
+    background:#4285f4;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+.ai-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin:25px 0;
+
+    box-shadow:
+    0 2px 10px rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+.result{
+
+    background:white;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 2px 8px rgba(
+        0,
+        0,
+        0,
+        0.05
+    );
+}
+.url{
+
+    color:#0a7d28;
+
+    margin-bottom:8px;
+}
+.search-container{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+.pagination{
+
+    text-align:center;
+
+    margin:30px;
+}
+
+.pagination a{
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    background:white;
+
+    text-decoration:none;
+}
+.kb-card{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    border-radius:12px;
+
+    box-shadow:
+    0 2px 8px rgba(
+        0,
+        0,
+        0,
+        0.05
+    );
+}
