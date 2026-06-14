@@ -4,9 +4,24 @@ import numpy as np
 
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer(
-    "all-MiniLM-L6-v2"
-)
+model = None
+
+
+def get_model():
+
+    global model
+
+    if model is None:
+
+        print(
+            "Loading embedding model..."
+        )
+
+        model = SentenceTransformer(
+            "all-MiniLM-L6-v2"
+        )
+
+    return model
 
 DB_PATH = "database/search.db"
 
@@ -28,7 +43,7 @@ def search_chunks(
     top_k=5
 ):
 
-    query_embedding = model.encode(
+    query_embedding = get_model().encode(
         query
     )
 
