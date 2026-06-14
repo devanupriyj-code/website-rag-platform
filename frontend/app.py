@@ -116,10 +116,14 @@ def home():
 
         log_search(query)
 
-        data = search(
-            query,
-            page
-        )
+        try:
+            data = search(
+                query,
+                page
+                )
+        except Exception as e:
+                print("SEARCH ERROR:", repr(e))
+                raise
 
         results = data["results"]
 

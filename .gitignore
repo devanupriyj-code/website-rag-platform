@@ -3,10 +3,6 @@ __pycache__/
 
 .env
 
-database/search.db
-
-data/*.json
-
 .venv/
 venv/
 
