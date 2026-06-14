@@ -129,7 +129,7 @@ Add screenshot here
 ### Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/website-rag-platform.git
+git clone https://github.com/devanupriyj-code/website-rag-platform.git
 
 cd website-rag-platform
 ```
