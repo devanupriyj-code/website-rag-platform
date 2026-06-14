@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+
+.git/
+.gitignore
+
+.env
+
+venv/
+.venv/
+
+.cache/
+
+.idea/
+.vscode/
+
+database/search.db
