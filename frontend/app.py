@@ -25,11 +25,13 @@ from flask import redirect
 
 
 from database.analytics import (
+    create_tables,
     log_search,
     top_searches
 )
 
 app = Flask(__name__)
+create_tables()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -113,8 +115,10 @@ def home():
     total_pages = 0
 
     if query:
-
-        log_search(query)
+        try:
+            log_search(query)
+        except Exception as e: 
+            print("LOG SEARCH ERROR:", e)
 
         try:
             data = search(
