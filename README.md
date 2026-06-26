@@ -1,132 +1,151 @@
 # 🚀 Website RAG Platform
 
-An AI-powered search engine that can crawl websites, build a knowledge base, perform keyword and semantic search, and answer questions using Retrieval-Augmented Generation (RAG).
+An AI-powered Retrieval-Augmented Generation (RAG) platform that transforms any website into a searchable knowledge base.
+
+The platform crawls websites, indexes their content, performs keyword and semantic search, and generates grounded AI answers using Large Language Models (LLMs).
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-### 🌐 Web Crawling
-
-* Multithreaded website crawler
-* Dynamic domain-based crawling
-* URL normalization
-* Internal link discovery
-* Crawl graph generation
+### 🌐 Intelligent Web Crawling
+- Multithreaded crawler
+- Domain-restricted crawling
+- URL normalization
+- Internal link discovery
+- Crawl graph visualization
 
 ### 🔍 Search Engine
+- TF-IDF ranking
+- Exact phrase search
+- Autocomplete suggestions
+- Search analytics
+- Pagination
 
-* TF-IDF ranking
-* Exact phrase search
-* Autocomplete suggestions
-* Search analytics
-* Pagination support
+### 🤖 AI Question Answering
+- Semantic search with embeddings
+- Vector similarity retrieval
+- Retrieval-Augmented Generation (RAG)
+- Groq LLM integration
+- Source-aware responses
 
-### 🤖 AI-Powered Question Answering
+### 📚 Knowledge Base Generation
+- Crawl any documentation website
+- Automatic text chunking
+- Embedding generation
+- Dynamic indexing
+- Reusable knowledge bases
 
-* Semantic search using embeddings
-* Vector similarity search
-* Retrieval-Augmented Generation (RAG)
-* Groq LLM integration
-* Source-aware responses
-
-### 📚 Knowledge Base Builder
-
-* Crawl any documentation website
-* Generate searchable knowledge bases
-* Chunking and embedding generation
-* Dynamic website indexing
-
-### 🐳 Docker Support
-
-* Dockerized application
-* Docker Compose configuration
-* Easy deployment and setup
+### 🐳 Deployment
+- Docker support
+- Docker Compose
+- Environment configuration
+- Easy local setup
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ System Architecture
 
 ```text
-User
- │
- ▼
-Flask Frontend
- │
- ├── TF-IDF Search Engine
- │        │
- │        ▼
- │    SQLite Database
- │
- └── RAG Pipeline
-          │
-          ▼
-    Sentence Transformers
-          │
-          ▼
-      Vector Search
-          │
-          ▼
-       Groq LLM
-          │
-          ▼
-       AI Answer
+                  User
+                    │
+                    ▼
+            Flask Web Interface
+                    │
+      ┌─────────────┴─────────────┐
+      │                           │
+      ▼                           ▼
+ TF-IDF Search Engine         RAG Pipeline
+      │                           │
+      ▼                           ▼
+ SQLite Database      Sentence Transformers
+                                  │
+                                  ▼
+                          Vector Similarity Search
+                                  │
+                                  ▼
+                              Groq LLM
+                                  │
+                                  ▼
+                             AI Response
 ```
 
 ---
 
-## 🛠️ Tech Stack
+# ⚙️ Tech Stack
 
-### Backend
-
-* Python
-* Flask
-* SQLite
-
-### Search
-
-* TF-IDF Ranking
-* Inverted Index
-* Autocomplete Engine
-
-### AI / RAG
-
-* Sentence Transformers
-* Vector Embeddings
-* Groq API
-* Semantic Retrieval
-
-### Infrastructure
-
-* Docker
-* Docker Compose
-* GitHub
+| Category | Technologies |
+|----------|--------------|
+| Backend | Python, Flask |
+| Database | SQLite |
+| Search | TF-IDF, Inverted Index |
+| AI | Sentence Transformers, Vector Embeddings, Groq API |
+| Web Crawling | BeautifulSoup, Requests |
+| Deployment | Docker, Docker Compose |
+| Version Control | Git, GitHub |
 
 ---
 
-## 📸 Screenshots
+# 📁 Project Structure
 
-### Home Page
-
-Add screenshot here
-
-### Search Results
-
-Add screenshot here
-
-### AI Answer
-
-Add screenshot here
-
-### Knowledge Base Builder
-
-Add screenshot here
+```text
+website-rag-platform/
+│
+├── crawler/
+│   ├── crawler.py
+│   ├── fetcher.py
+│   ├── parser.py
+│   └── queue_manager.py
+│
+├── indexer/
+│
+├── rag/
+│
+├── frontend/
+│
+├── search/
+│
+├── database/
+│
+├── data/
+│
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-## 🚀 Getting Started
+# 📸 Screenshots
 
-### Clone Repository
+## 🏠 Home Page
+
+> Add screenshot
+
+---
+
+## 🔍 Search Results
+
+> Add screenshot
+
+---
+
+## 🤖 AI Answer
+
+> Add screenshot
+
+---
+
+## 📚 Knowledge Base Builder
+
+> Add screenshot
+
+---
+
+# 🚀 Getting Started
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/devanupriyj-code/website-rag-platform.git
@@ -134,37 +153,39 @@ git clone https://github.com/devanupriyj-code/website-rag-platform.git
 cd website-rag-platform
 ```
 
-### Create Environment Variables
+## Environment Variables
 
-Create a `.env` file:
+Create a `.env` file.
 
 ```env
-GROQ_API_KEY=your_groq_api_key
+GROQ_API_KEY=your_api_key
 ```
 
-### Run Using Docker
+---
+
+## Run with Docker
 
 ```bash
 docker compose up --build
 ```
 
-Open:
+Visit
 
-```text
+```
 http://localhost:5000
 ```
 
 ---
 
-## 🔧 Local Development
+## Local Development
 
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run:
+Run the application
 
 ```bash
 python -m frontend.app
@@ -172,61 +193,88 @@ python -m frontend.app
 
 ---
 
-## 📖 How It Works
+# 🔄 Workflow
 
-### 1. Crawl Website
+### 1️⃣ Crawl Website
 
-The crawler visits pages, extracts content, and stores information in SQLite.
+The crawler visits pages, extracts content, and stores the information in SQLite.
 
-### 2. Build Search Index
+↓
 
-TF-IDF indexing generates an inverted index and IDF values.
+### 2️⃣ Build Search Index
 
-### 3. Create Embeddings
+TF-IDF indexing creates an inverted index for efficient keyword search.
 
-Content is chunked and converted into vector embeddings.
+↓
 
-### 4. Search
+### 3️⃣ Generate Embeddings
 
-Users can search using:
+Website content is split into chunks and converted into dense vector embeddings.
 
-* Keyword search (TF-IDF)
-* Semantic search (embeddings)
+↓
 
-### 5. AI Answers
+### 4️⃣ Retrieve Relevant Context
 
-Relevant chunks are retrieved and passed to a Groq LLM to generate grounded answers.
+The system performs:
 
----
+- Keyword Search (TF-IDF)
+- Semantic Search (Vector Similarity)
 
-## 🎯 Future Improvements
+↓
 
-* BM25 Ranking
-* User Authentication
-* Multiple Knowledge Bases
-* Website Deployment
-* Citation Links in AI Answers
-* Dark Mode
-* PostgreSQL Support
-* Redis Caching
+### 5️⃣ Generate AI Answer
+
+Retrieved chunks are sent to the Groq LLM, which generates a grounded answer based only on the retrieved context.
 
 ---
 
-## 📈 Project Highlights
+# 🌟 Highlights
 
-* Multithreaded crawler
-* Search engine built from scratch
-* Semantic search
-* Retrieval-Augmented Generation (RAG)
-* Dockerized deployment
-* Dynamic website knowledge base generation
+- ✅ Built a search engine from scratch
+- ✅ Multithreaded web crawler
+- ✅ Dynamic website indexing
+- ✅ Semantic search using embeddings
+- ✅ Retrieval-Augmented Generation (RAG)
+- ✅ Dockerized deployment
+- ✅ Modular architecture
 
 ---
 
-## 👨‍💻 Author
+# 🚀 Future Improvements
 
-Devanupriy Jain
+- BM25 ranking
+- Redis caching
+- PostgreSQL support
+- Multiple knowledge bases
+- Citation links
+- Authentication
+- Dark mode
+- Incremental crawling
+- Hybrid search (TF-IDF + Vector)
+
+---
+
+# 📊 Why This Project?
+
+Traditional search engines return documents.
+
+This platform retrieves the most relevant website content and uses Retrieval-Augmented Generation (RAG) to generate context-aware, explainable answers while reducing hallucinations.
+
+---
+
+# 👨‍💻 Author
+
+**Devanupriy Jain**
 
 First-Year B.Tech CSE Student
 
-Passionate about Search Systems, AI, Backend Development, and Open Source.
+Interested in:
+- Search Systems
+- Artificial Intelligence
+- Backend Development
+- Information Retrieval
+- Open Source
+
+---
+
+⭐ If you found this project useful, consider giving it a star!
