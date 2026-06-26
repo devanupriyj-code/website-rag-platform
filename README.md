@@ -1,45 +1,49 @@
 # 🚀 Website RAG Platform
 
-An AI-powered Retrieval-Augmented Generation (RAG) platform that transforms any website into a searchable knowledge base.
+An AI-powered **Retrieval-Augmented Generation (RAG)** platform that transforms any website into a searchable knowledge base.
 
 The platform crawls websites, indexes their content, performs keyword and semantic search, and generates grounded AI answers using Large Language Models (LLMs).
 
 ---
 
-## ✨ Key Features
+# ✨ Key Features
 
-### 🌐 Intelligent Web Crawling
+## 🌐 Intelligent Web Crawling
+
 - Multithreaded crawler
 - Domain-restricted crawling
 - URL normalization
 - Internal link discovery
 - Crawl graph visualization
 
-### 🔍 Search Engine
-- TF-IDF ranking
+## 🔍 Search Engine
+
+- TF-IDF Ranking
 - Exact phrase search
 - Autocomplete suggestions
 - Search analytics
 - Pagination
 
-### 🤖 AI Question Answering
-- Semantic search with embeddings
-- Vector similarity retrieval
+## 🤖 AI Question Answering
+
+- Semantic Search using embeddings
+- Vector Similarity Search
 - Retrieval-Augmented Generation (RAG)
 - Groq LLM integration
 - Source-aware responses
 
-### 📚 Knowledge Base Generation
+## 📚 Knowledge Base Generation
+
 - Crawl any documentation website
 - Automatic text chunking
 - Embedding generation
 - Dynamic indexing
 - Reusable knowledge bases
 
-### 🐳 Deployment
+## 🐳 Deployment
+
 - Docker support
 - Docker Compose
-- Environment configuration
 - Easy local setup
 
 ---
@@ -79,8 +83,8 @@ The platform crawls websites, indexes their content, performs keyword and semant
 | Backend | Python, Flask |
 | Database | SQLite |
 | Search | TF-IDF, Inverted Index |
-| AI | Sentence Transformers, Vector Embeddings, Groq API |
-| Web Crawling | BeautifulSoup, Requests |
+| AI | Sentence Transformers, Groq API |
+| Crawling | BeautifulSoup, Requests |
 | Deployment | Docker, Docker Compose |
 | Version Control | Git, GitHub |
 
@@ -91,26 +95,21 @@ The platform crawls websites, indexes their content, performs keyword and semant
 ```text
 website-rag-platform/
 │
+├── assets/
+│   ├── home.png
+│   ├── links.png
+│   ├── RAG.png
+│   └── auto complete.png
+│
 ├── crawler/
-│   ├── crawler.py
-│   ├── fetcher.py
-│   ├── parser.py
-│   └── queue_manager.py
-│
-├── indexer/
-│
-├── rag/
-│
 ├── frontend/
-│
+├── indexer/
+├── rag/
 ├── search/
-│
 ├── database/
-│
 ├── data/
-│
-├── docker-compose.yml
 ├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
 └── README.md
 ```
@@ -121,25 +120,33 @@ website-rag-platform/
 
 ## 🏠 Home Page
 
-> Add screenshot
+<p align="center">
+  <img src="assets/home.png" width="900" alt="Home Page">
+</p>
 
 ---
 
 ## 🔍 Search Results
 
-> Add screenshot
+<p align="center">
+  <img src="assets/links.png" width="900" alt="Search Results">
+</p>
 
 ---
 
 ## 🤖 AI Answer
 
-> Add screenshot
+<p align="center">
+  <img src="assets/RAG.png" width="900" alt="AI Answer">
+</p>
 
 ---
 
-## 📚 Knowledge Base Builder
+## ✨ Autocomplete Suggestions
 
-> Add screenshot
+<p align="center">
+  <img src="assets/auto%20complete.png" width="900" alt="Autocomplete">
+</p>
 
 ---
 
@@ -153,23 +160,23 @@ git clone https://github.com/devanupriyj-code/website-rag-platform.git
 cd website-rag-platform
 ```
 
-## Environment Variables
+## Create Environment Variables
 
 Create a `.env` file.
 
 ```env
-GROQ_API_KEY=your_api_key
+GROQ_API_KEY=your_groq_api_key
 ```
 
 ---
 
-## Run with Docker
+## Run Using Docker
 
 ```bash
 docker compose up --build
 ```
 
-Visit
+Visit:
 
 ```
 http://localhost:5000
@@ -193,23 +200,23 @@ python -m frontend.app
 
 ---
 
-# 🔄 Workflow
+# 🔄 How It Works
 
 ### 1️⃣ Crawl Website
 
-The crawler visits pages, extracts content, and stores the information in SQLite.
+The crawler visits website pages, extracts text and links, and stores them in SQLite.
 
 ↓
 
 ### 2️⃣ Build Search Index
 
-TF-IDF indexing creates an inverted index for efficient keyword search.
+The indexer creates a TF-IDF inverted index for fast keyword searching.
 
 ↓
 
 ### 3️⃣ Generate Embeddings
 
-Website content is split into chunks and converted into dense vector embeddings.
+Website content is chunked and converted into dense vector embeddings using Sentence Transformers.
 
 ↓
 
@@ -224,57 +231,59 @@ The system performs:
 
 ### 5️⃣ Generate AI Answer
 
-Retrieved chunks are sent to the Groq LLM, which generates a grounded answer based only on the retrieved context.
+Relevant chunks are retrieved and passed to the Groq LLM to generate grounded, context-aware responses.
 
 ---
 
 # 🌟 Highlights
 
-- ✅ Built a search engine from scratch
+- ✅ Built a search engine completely from scratch
 - ✅ Multithreaded web crawler
 - ✅ Dynamic website indexing
-- ✅ Semantic search using embeddings
+- ✅ Semantic search with embeddings
 - ✅ Retrieval-Augmented Generation (RAG)
 - ✅ Dockerized deployment
 - ✅ Modular architecture
+- ✅ Supports crawling any documentation website
 
 ---
 
 # 🚀 Future Improvements
 
-- BM25 ranking
-- Redis caching
-- PostgreSQL support
-- Multiple knowledge bases
-- Citation links
+- BM25 Ranking
+- Redis Caching
+- PostgreSQL Support
+- Multiple Knowledge Bases
 - Authentication
-- Dark mode
-- Incremental crawling
-- Hybrid search (TF-IDF + Vector)
+- Citation Links
+- Dark Mode
+- Incremental Crawling
+- Hybrid Search (TF-IDF + Semantic)
 
 ---
 
 # 📊 Why This Project?
 
-Traditional search engines return documents.
+Traditional search engines return relevant documents.
 
-This platform retrieves the most relevant website content and uses Retrieval-Augmented Generation (RAG) to generate context-aware, explainable answers while reducing hallucinations.
+This platform goes one step further by retrieving the most relevant information and using **Retrieval-Augmented Generation (RAG)** to generate accurate, grounded, and explainable answers while reducing hallucinations.
 
 ---
 
 # 👨‍💻 Author
 
-**Devanupriy Jain**
+## Devanupriy Jain
 
-First-Year B.Tech CSE Student
+**First-Year B.Tech Computer Science Engineering Student**
 
 Interested in:
-- Search Systems
-- Artificial Intelligence
-- Backend Development
-- Information Retrieval
-- Open Source
+
+- 🔍 Search Systems
+- 🤖 Artificial Intelligence
+- ⚙️ Backend Development
+- 📚 Information Retrieval
+- 🌍 Open Source
 
 ---
 
-⭐ If you found this project useful, consider giving it a star!
+⭐ **If you found this project useful, consider giving it a star!**
